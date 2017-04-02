@@ -1,24 +1,24 @@
+# socket.io22
+socket.io2 version 0.9.17 can be supported to latest node version
+
 # socket.io2
-socket.io version 0.9.17 can be supported to latest node version
 
-# Socket.IO
-
-Socket.IO is a Node.JS project that makes WebSockets and realtime possible in
+socket.io2 is a Node.JS project that makes WebSockets and realtime possible in
 all browsers. It also enhances WebSockets by providing built-in multiplexing,
 horizontal scalability, automatic JSON encoding/decoding, and more.
 
 ## How to Install
 
 ```bash
-npm install socket.io
+npm install socket.io2
 ```
 
 ## How to use
 
-First, require `socket.io`:
+First, require `socket.io2`:
 
 ```js
-var io = require('socket.io');
+var io = require('socket.io2');
 ```
 
 Next, attach it to a HTTP/HTTPS server. If you're using the fantastic `express`
@@ -60,7 +60,7 @@ io.sockets.on('connection', function (socket) {
 Finally, load it from the client side code:
 
 ```html
-<script src="/socket.io/socket.io.js"></script>
+<script src="/socket.io2/socket.io2.js"></script>
 <script>
   var socket = io.connect('http://localhost');
   socket.on('news', function (data) {
@@ -76,12 +76,12 @@ For more thorough examples, look at the `examples/` directory.
 
 ### Sending and receiving events.
 
-Socket.IO allows you to emit and receive custom events.
+socket.io2 allows you to emit and receive custom events.
 Besides `connect`, `message` and `disconnect`, you can emit custom events:
 
 ```js
 // note, io.listen(<port>) will create a http server for you
-var io = require('socket.io').listen(80);
+var io = require('socket.io2').listen(80);
 
 io.sockets.on('connection', function (socket) {
   io.sockets.emit('this', { will: 'be received by everyone' });
@@ -104,7 +104,7 @@ necessary for the duration of the session.
 #### Server side
 
 ```js
-var io = require('socket.io').listen(80);
+var io = require('socket.io2').listen(80);
 
 io.sockets.on('connection', function (socket) {
   socket.on('set nickname', function (name) {
@@ -141,10 +141,10 @@ If you have control over all the messages and events emitted for a particular
 application, using the default `/` namespace works.
 
 If you want to leverage 3rd-party code, or produce code to share with others,
-socket.io provides a way of namespacing a `socket`.
+socket.io2 provides a way of namespacing a `socket`.
 
 This has the benefit of `multiplexing` a single connection. Instead of
-socket.io using two `WebSocket` connections, it'll use one.
+socket.io2 using two `WebSocket` connections, it'll use one.
 
 The following example defines a socket that listens on '/chat' and one for
 '/news':
@@ -152,7 +152,7 @@ The following example defines a socket that listens on '/chat' and one for
 #### Server side
 
 ```js
-var io = require('socket.io').listen(80);
+var io = require('socket.io2').listen(80);
 
 var chat = io
   .of('/chat')
@@ -200,7 +200,7 @@ In that case, you might want to send those messages as volatile messages.
 #### Server side
 
 ```js
-var io = require('socket.io').listen(80);
+var io = require('socket.io2').listen(80);
 
 io.sockets.on('connection', function (socket) {
   var tweets = setInterval(function () {
@@ -232,7 +232,7 @@ means you can also pass data along:
 #### Server side
 
 ```js
-var io = require('socket.io').listen(80);
+var io = require('socket.io2').listen(80);
 
 io.sockets.on('connection', function (socket) {
   socket.on('ferret', function (name, fn) {
@@ -263,7 +263,7 @@ that starts it.
 #### Server side
 
 ```js
-var io = require('socket.io').listen(80);
+var io = require('socket.io2').listen(80);
 
 io.sockets.on('connection', function (socket) {
   socket.broadcast.emit('user connected');
@@ -282,7 +282,7 @@ rooms in each socket.
 #### Server side
 
 ```js
-var io = require('socket.io').listen(80);
+var io = require('socket.io2').listen(80);
 
 io.sockets.on('connection', function (socket) {
   socket.join('justin bieber fans');
@@ -299,7 +299,7 @@ Simply leverage `send` and listen on the `message` event:
 #### Server side
 
 ```js
-var io = require('socket.io').listen(80);
+var io = require('socket.io2').listen(80);
 
 io.sockets.on('connection', function (socket) {
   socket.on('message', function () { });
@@ -324,12 +324,12 @@ io.sockets.on('connection', function (socket) {
 
 ### Changing configuration
 
-Configuration in socket.io is TJ-style:
+Configuration in socket.io2 is TJ-style:
 
 #### Server side
 
 ```js
-var io = require('socket.io').listen(80);
+var io = require('socket.io2').listen(80);
 
 io.configure(function () {
   io.set('transports', ['websocket', 'flashsocket', 'xhr-polling']);
